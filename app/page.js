@@ -57,24 +57,28 @@ export default function Home() {
 	};
 
 	return (
-		<div>
+		<div className='flex flex-col text-center justify-center'>
 			<Head>
 				<title>OCR App</title>
 			</Head>
-			<h1>OCR App with OpenCV.js and Tesseract.js</h1>
+			<h1 className='flex flex-col text-center justify-center text-2xl p-5 underline  underline-offset-8'>
+				OCR App with OpenCV.js and Tesseract.js
+			</h1>
 			<input type='file' onChange={handleImageUpload} />
 			<canvas ref={canvasRef} style={{ display: 'none' }} />
 			{image && (
-				<img
-					src={image}
-					alt='Uploaded'
-					width={imageDimensions.width}
-					height={imageDimensions.height}
-				/>
+				<div className='ml-5 p-3 flex flex-col text-center justify-center'>
+					<img
+						src={image}
+						alt='Uploaded'
+						width={imageDimensions.width}
+						height={imageDimensions.height}
+					/>
+				</div>
 			)}
-			<div>
-				<h2>Extracted Text:</h2>
-				<p>{text}</p>
+			<div className='m-5 border-solid border-2 border-sky-500'>
+				<h2 className='text-xl mt-5'>Extracted Text:</h2>
+				<p className='text-justify p-5'>{text}</p>
 			</div>
 		</div>
 	);
